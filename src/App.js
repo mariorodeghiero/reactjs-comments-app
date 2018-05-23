@@ -7,22 +7,33 @@ import Comments from "./Comments";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.postNewComment = this.postNewComment.bind(this);
     this.state = {
       comments: {
         "1": {
-          comments: "first"
+          comment: "first"
         },
         "2": {
-          comments: "second"
+          comment: "second"
         }
       }
     };
   }
 
+  postNewComment(comment) {
+    this.setState({
+      comments: {
+        ...this.state.comments,
+        comment
+      }
+    });
+  }
+
   render() {
     return (
       <div className="container">
-        <NewComment />
+        <NewComment postNewComnent={this.state.postNewComment} />
         <Comments comments={this.state.comments} />
       </div>
     );
