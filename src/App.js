@@ -7,8 +7,6 @@ import Comments from "./Comments";
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.postNewComment = this.postNewComment.bind(this);
     this.state = {
       comments: {
         "1": {
@@ -19,8 +17,8 @@ class App extends Component {
         }
       }
     };
+    this.postNewComment = this.postNewComment.bind(this);
   }
-
   postNewComment(comment) {
     this.setState({
       comments: {
@@ -29,11 +27,10 @@ class App extends Component {
       }
     });
   }
-
   render() {
     return (
       <div className="container">
-        <NewComment postNewComnent={this.state.postNewComment} />
+        <NewComment postNewComment={this.postNewComment} />
         <Comments comments={this.state.comments} />
       </div>
     );
