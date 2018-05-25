@@ -10,8 +10,9 @@ class NewComment extends Component {
   handleEnter(event) {
     if (event.keyCode === 13) {
       this.props.postNewComment({
-        comment: "test"
+        comment: this.refs.comment.value
       });
+      this.refs.comment.value = "";
       event.preventDefault();
     }
   }
@@ -19,6 +20,7 @@ class NewComment extends Component {
     return (
       <div className="row">
         <textarea
+          ref="comment"
           placeholder="Comment!!"
           className="form-control"
           onKeyDown={this.handleEnter}
