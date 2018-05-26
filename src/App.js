@@ -3,22 +3,23 @@ import "bootstrap-css-only";
 
 import NewComment from "./NewComment";
 import Comments from "./Comments";
-
+import base from "./base";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      comments: {
-        "1": {
-          comment: "first"
-        },
-        "2": {
-          comment: "second"
-        }
-      }
-    };
+
     this.postNewComment = this.postNewComment.bind(this);
+
+    this.state = {
+      comments: {}
+    };
+
+    this.refComments = base.syncState("comments", {
+      context: this,
+      state: "comments"
+    });
   }
+
   postNewComment(comment) {
     const comments = {
       ...this.state.comments
@@ -29,6 +30,7 @@ class App extends Component {
       comments: comments
     });
   }
+
   render() {
     return (
       <div className="container">
