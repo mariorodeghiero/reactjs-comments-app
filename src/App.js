@@ -4,6 +4,7 @@ import "bootstrap-css-only";
 import NewComment from "./NewComment";
 import Comments from "./Comments";
 import base from "./base";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
