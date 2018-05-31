@@ -36,6 +36,13 @@ class App extends Component {
 
   auth(provider) {
     this.props.auth.signInWithPopup(this.props.providers[provider]);
+    this.props.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ isLoggedIn: true, user });
+      } else {
+        this.setState({ isLoggedIn: false, user: {} });
+      }
+    });
   }
   render() {
     return (
