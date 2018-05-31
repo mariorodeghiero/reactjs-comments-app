@@ -12,7 +12,9 @@ class App extends Component {
     this.postNewComment = this.postNewComment.bind(this);
 
     this.state = {
-      comments: {}
+      comments: {},
+      isLoggedIn: false,
+      user: ""
     };
 
     this.refComments = base.syncState("comments", {
@@ -32,10 +34,24 @@ class App extends Component {
     });
   }
 
+  auth(provider) {
+    console.log("------------------------------------");
+    console.log(provider);
+    console.log("------------------------------------");
+  }
   render() {
     return (
       <div className="container">
-        <NewComment postNewComment={this.postNewComment} />
+        {this.state.isLoggedIn && (
+          <NewComment postNewComment={this.postNewComment} />
+        )}
+        {!this.state.isLoggedIn && (
+          <div className="alert alert-info">
+            <button onClick={() => this.auth("gitHub")}>
+              Enter with your social media
+            </button>
+          </div>
+        )}
         <Comments comments={this.state.comments} />
       </div>
     );
