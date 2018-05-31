@@ -21,6 +21,14 @@ class App extends Component {
       context: this,
       state: "comments"
     });
+
+    this.props.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ isLoggedIn: true, user });
+      } else {
+        this.setState({ isLoggedIn: false, user: {} });
+      }
+    });
   }
 
   postNewComment(comment) {
@@ -36,26 +44,25 @@ class App extends Component {
 
   auth(provider) {
     this.props.auth.signInWithPopup(this.props.providers[provider]);
-    this.props.auth.onAuthStateChanged(user => {
-      if (user) {
-        this.setState({ isLoggedIn: true, user });
-      } else {
-        this.setState({ isLoggedIn: false, user: {} });
-      }
-    });
   }
   render() {
     return (
       <div className="container">
         {this.state.isLoggedIn && (
-          <NewComment postNewComment={this.postNewComment} />
+          <div>
+            <h4>{this.state.user.displayName}</h4>
+            <img
+              className="photo"
+              alt={this.state.user}
+              src={this.state.user.photoURL}
+            />
+            <NewComment postNewComment={this.postNewComment} />
+            <button onClick={() => this.props.auth.signOut()}>Logout</button>
+          </div>
         )}
         {!this.state.isLoggedIn && (
           <div className="alert alert-info">
-            <button onClick={() => this.auth("google")}>
-              Enter with your social media
-            </button>
-            <button onClick={() => this.props.auth.signOut()}>Deslogar</button>
+            <button onClick={() => this.auth("google")}>Google</button>
           </div>
         )}
         <Comments comments={this.state.comments} />
