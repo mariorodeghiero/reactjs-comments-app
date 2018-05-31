@@ -35,9 +35,7 @@ class App extends Component {
   }
 
   auth(provider) {
-    console.log("------------------------------------");
-    console.log(provider);
-    console.log("------------------------------------");
+    this.props.auth.signInWithPopup(this.props.providers[provider]);
   }
   render() {
     return (
@@ -47,9 +45,10 @@ class App extends Component {
         )}
         {!this.state.isLoggedIn && (
           <div className="alert alert-info">
-            <button onClick={() => this.auth("gitHub")}>
+            <button onClick={() => this.auth("google")}>
               Enter with your social media
             </button>
+            <button onClick={() => this.props.auth.signOut()}>Deslogar</button>
           </div>
         )}
         <Comments comments={this.state.comments} />
