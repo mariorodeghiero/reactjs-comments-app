@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/react-fontawesome": "0.0.20",
     "bootstrap-css-only": "^4.1.0",
     "firebase": "^5.0.4",
     "re-base": "^3.2.3",

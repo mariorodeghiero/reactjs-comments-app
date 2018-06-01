@@ -5,6 +5,10 @@ import NewComment from "./NewComment";
 import Comments from "./Comments";
 import base from "./base";
 import "./App.css";
+
+import fontawesome from "@fortawesome/fontawesome";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import brands from "@fortawesome/fontawesome-free-brands";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -62,10 +66,10 @@ class App extends Component {
             <p className="email"> {this.state.user.email} </p>
             <NewComment postNewComment={this.postNewComment} />
             <button
-              className="btn btn-default"
+              className="btn btn-outline-secondary"
               onClick={() => this.props.auth.signOut()}
             >
-              Logout
+              Sign Out
             </button>
           </div>
         )}
@@ -75,7 +79,7 @@ class App extends Component {
               className="btn btn-danger"
               onClick={() => this.auth("google")}
             >
-              <i className="fa fa-google" aria-hidden="true" />
+              <FontAwesomeIcon icon={["fab", "google"]} />
               oogle
             </button>
           </div>
