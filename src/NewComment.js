@@ -19,7 +19,6 @@ class NewComment extends Component {
   render() {
     return (
       <div className="row">
-        <h4 className="form-text">Write your comment:</h4>
         <textarea
           ref="comment"
           placeholder="Comment!!"

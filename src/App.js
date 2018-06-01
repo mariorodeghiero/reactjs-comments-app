@@ -25,6 +25,9 @@ class App extends Component {
     this.props.auth.onAuthStateChanged(user => {
       if (user) {
         this.setState({ isLoggedIn: true, user });
+        console.log("------------------------------------");
+        console.log(user);
+        console.log("------------------------------------");
       } else {
         this.setState({ isLoggedIn: false, user: {} });
       }
@@ -50,19 +53,31 @@ class App extends Component {
       <div className="container">
         {this.state.isLoggedIn && (
           <div>
-            <h4>{this.state.user.displayName}</h4>
             <img
               className="photo"
               alt={this.state.user}
               src={this.state.user.photoURL}
             />
+            <h5 className="display-name"> {this.state.user.displayName} </h5>
+            <p className="email"> {this.state.user.email} </p>
             <NewComment postNewComment={this.postNewComment} />
-            <button onClick={() => this.props.auth.signOut()}>Logout</button>
+            <button
+              className="btn btn-default"
+              onClick={() => this.props.auth.signOut()}
+            >
+              Logout
+            </button>
           </div>
         )}
         {!this.state.isLoggedIn && (
-          <div className="alert alert-info">
-            <button onClick={() => this.auth("google")}>Google</button>
+          <div className="alert alert-dark">
+            <button
+              className="btn btn-danger"
+              onClick={() => this.auth("google")}
+            >
+              <i className="fa fa-google" aria-hidden="true" />
+              oogle
+            </button>
           </div>
         )}
         <Comments comments={this.state.comments} />
