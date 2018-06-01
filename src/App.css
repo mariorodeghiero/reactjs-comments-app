@@ -24,3 +24,11 @@ body {
   border-radius: 50%;
   float: left;
 }
+
+.comment-user {
+  margin: 10px;
+}
+
+.card-body {
+  margin-left: 30px;
+}
