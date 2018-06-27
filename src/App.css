@@ -1,14 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100");
+
 body {
   background-color: #ffffff;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button {
+  font-family: "Roboto";
+  font-weight: 100;
+  line-height: 1.1;
+  letter-spacing: 0.025em;
+}
+.user {
+  width: 90%;
+  margin: 30px;
+}
 .form-control {
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
 .card {
-  margin: 20px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .display-name {
@@ -26,9 +48,11 @@ body {
 }
 
 .comment-user {
-  margin: 10px;
+  font-weight: 300;
+  margin-top: 30px;
+  margin-left: 30px;
 }
 
 .card-body {
-  margin-left: 30px;
+  text-align: center;
 }

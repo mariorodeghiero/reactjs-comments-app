@@ -21,9 +21,10 @@ class NewComment extends Component {
       <div className="row">
         <textarea
           ref="comment"
-          placeholder="Comment!!"
+          placeholder="Write your comment and press enter!"
           className="form-control"
           onKeyDown={this.handleEnter}
+          autoFocus={true}
         />
       </div>
     );

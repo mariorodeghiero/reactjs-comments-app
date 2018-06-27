@@ -6,7 +6,7 @@ import Comments from "./Comments";
 import base from "./base";
 import "./App.css";
 
-import fontawesome from "@fortawesome/fontawesome";
+// import fontawesome from "@fortawesome/fontawesome";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import brands from "@fortawesome/fontawesome-free-brands";
 class App extends Component {
@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <div className="container">
         {this.state.isLoggedIn && (
-          <div>
+          <div className="user">
             <img
               className="photo"
               alt={this.state.user}
