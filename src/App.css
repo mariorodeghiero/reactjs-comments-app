@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100");
 
-body {
-  background-color: #ffffff;
-}
-
 h1,
 h2,
 h3,
@@ -11,12 +7,29 @@ h4,
 h5,
 h6,
 p,
+label,
 span,
 button {
   font-family: "Roboto";
   font-weight: 100;
   line-height: 1.1;
   letter-spacing: 0.025em;
+}
+.container {
+  min-height: 73vh;
+}
+.alert {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+.title {
+  text-align: center;
+}
+.sign-in {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-right: 20px;
 }
 .user {
   width: 90%;
@@ -55,4 +68,18 @@ button {
 
 .card-body {
   text-align: center;
+}
+
+.footer {
+  border-top: 1px solid #dfdfdf;
+  text-align: center;
+  padding: 40px;
+  height: 80px;
+  margin-top: 80px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-top: -2px;
 }
