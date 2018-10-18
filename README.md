@@ -1,6 +1,6 @@
 # ReactJS Comments App
 
-A simple comment system, built with ReactJS, integrated with Firebase, using Atenticação and a real-time database. Based on the knowledge acquired in the course of the [Devpleno].
+A simple comment system, built with ReactJS, integrated with Firebase, using authentication and real-time database, based on the DevReactJS [Devpleno] course.
 
 ### Prerequisites
 
